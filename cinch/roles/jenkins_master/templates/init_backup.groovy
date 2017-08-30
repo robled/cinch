@@ -11,15 +11,15 @@ String backupPath = "{{ jenkins_backup.directory|default('/jenkins_backup/.backu
 String fullBackupSchedule = "{{ jenkins_backup.full_schedule|default('H 0 * * 0') }}";
 String diffBackupSchedule = "{{ jenkins_backup.diff_schedule|default('H 0 * * *') }}";
 String excludedFiles = "{{ jenkins_backup.exclude|default('') }}";
-def maxSets = {{ jenkins_backup.max_sets|default(4) }};
+def maxSets = {{ jenkins_backup.max_sets|default(2) }};
 def waitForIdle = {{ jenkins_backup.wait_for_idle|default(false)|to_json }};
-def forceQuietModeTimeout = {{ jenkins_backup.quiet_mode_timeout|default(120)|to_json }};
+def forceQuietModeTimeout = {{ jenkins_backup.quiet_mode_timeout|default(480)|to_json }};
 def backupBuildResults = {{ jenkins_backup.build_results|default(false)|to_json }};
-def backupUserContents = {{ jenkins_backup.user_contents|default(false)|to_json }};
-def cleanupDiff = {{ jenkins_backup.cleanup_diffs|default(false)|to_json }};
-def backupNextBuildNumber = {{ jenkins_backup.next_build_number|default(false)|to_json }};
+def backupUserContents = {{ jenkins_backup.user_contents|default(true)|to_json }};
+def cleanupDiff = {{ jenkins_backup.cleanup_diffs|default(true)|to_json }};
+def backupNextBuildNumber = {{ jenkins_backup.next_build_number|default(true)|to_json }};
 def moveOldBackupsToZipFile = {{ jenkins_backup.move_to_zip|default(false)|to_json }};
-def backupPluginArchives = {{ jenkins_backup.plugin_archives|default(false)|to_json }};
+def backupPluginArchives = {{ jenkins_backup.plugin_archives|default(true)|to_json }};
 
 def void changed(String field, def value) {
 	changes = true;

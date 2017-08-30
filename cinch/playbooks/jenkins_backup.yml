@@ -29,7 +29,7 @@
       diff_schedule: H 0 * * *
       max_sets: 2
       exclude: ''
-      wait_for_idle: true
+      wait_for_idle: false
       quiet_mode_timeout: 480
       build_results: false
       user_contents: true

@@ -18,7 +18,6 @@
     - libyaml-devel
     - openssl-devel
     - libffi-devel
-    - ansible
 
 - name: install additional packages
   package:
